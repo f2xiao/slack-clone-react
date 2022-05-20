@@ -2,12 +2,12 @@ import React from 'react';
 import { Routes, Route, Link } from "react-router-dom";
 import './App.css';
 
+import Header from "./layout/Header.js"
+
 function App() {
   return (
-    <div className="App">
-      <h1>
-        header
-      </h1>
+    <div className="App" theme="dark">
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
