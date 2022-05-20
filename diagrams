@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2022-05-20T18:54:41.017Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="NrOX2QZzZMfASHF_iN4d" version="18.1.1" type="github" pages="3">
+<mxfile host="app.diagrams.net" modified="2022-05-20T19:00:03.422Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="gw1z5KTuHOkt4xi7bd5P" version="18.1.1" type="github" pages="3">
   <diagram id="fcDIV_64odW8RtRT6d6j" name="01 setup">
     <mxGraphModel dx="876" dy="848" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
       <root>
@@ -84,7 +84,10 @@
           <mxGeometry x="80" y="590" width="80" height="30" as="geometry" />
         </mxCell>
         <mxCell id="aiDyvQ-KKzbt-HQwkyki-8" value="hover effect opacity 0.8" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="PsZRC36P_iwAk-fpYn1K-1">
-          <mxGeometry x="200" y="560" width="140" height="30" as="geometry" />
+          <mxGeometry x="160" y="560" width="140" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="aiDyvQ-KKzbt-HQwkyki-9" value="input" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="PsZRC36P_iwAk-fpYn1K-1">
+          <mxGeometry x="120" y="630" width="60" height="30" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
