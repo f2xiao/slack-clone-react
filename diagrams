@@ -1,1 +1,42 @@
-<mxfile host="app.diagrams.net" modified="2022-05-20T18:15:43.155Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" version="18.1.1" etag="XUv64CjUn47y6nTFAdE9" type="github"><diagram id="fcDIV_64odW8RtRT6d6j">UzV2zq1wL0osyPDNT0nNUTV2VTV2LsrPL4GwciucU3NyVI0MMlNUjV1UjYwMgFjVyA2HrCFY1qAgsSg1rwSLBiADYTaQg2Y1AA==</diagram></mxfile>
+<mxfile host="app.diagrams.net" modified="2022-05-20T18:26:20.603Z" agent="5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.4951.67 Safari/537.36" etag="1suB6vbhmjyLyB7J_-Fh" version="18.1.1" type="github" pages="2">
+  <diagram id="fcDIV_64odW8RtRT6d6j" name="01 setup">
+    <mxGraphModel dx="876" dy="848" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="hlu75fAdIFUCTAS4B5hE-1" value="npx create-react-app . --template-redux" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="110" y="140" width="220" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hlu75fAdIFUCTAS4B5hE-2" value="project scalfold" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="70" y="100" width="100" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hlu75fAdIFUCTAS4B5hE-3" value="firebase config" style="text;html=1;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="180" width="90" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hlu75fAdIFUCTAS4B5hE-4" value="redux config" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="220" width="70" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="hlu75fAdIFUCTAS4B5hE-5" value="react router config" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;" vertex="1" parent="1">
+          <mxGeometry x="80" y="260" width="100" height="30" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+  <diagram id="-WXqK9COdgzLYru3Wu3V" name="02 components - home">
+    <mxGraphModel dx="876" dy="848" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="850" pageHeight="1100" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="7jkKuTljSnFquUHxMeQ9-1" value="header" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="190" width="630" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="7jkKuTljSnFquUHxMeQ9-2" value="sidebar" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="130" y="270" width="130" height="440" as="geometry" />
+        </mxCell>
+        <mxCell id="7jkKuTljSnFquUHxMeQ9-3" value="chat container" style="rounded=0;whiteSpace=wrap;html=1;" vertex="1" parent="1">
+          <mxGeometry x="260" y="270" width="500" height="440" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
