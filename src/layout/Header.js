@@ -1,17 +1,25 @@
 import React from 'react'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
+import SearchIcon from '@mui/icons-material/Search';
+import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import styled from 'styled-components'
-
+import { Avatar } from '@mui/material'
 
 function Header() {
   
   return (
     <HeaderContainer>
-      <HeaderLeft>left
+      <HeaderLeft>
+        <HeaderAvatar />
         <AccessTimeIcon />
       </HeaderLeft>
-      <HeaderSearch>search</HeaderSearch>
-      <HeaderRight>right</HeaderRight>
+      <HeaderSearch>
+      <SearchIcon />
+        <input placeholder='Search youtube'></input>
+      </HeaderSearch>
+      <HeaderRight>
+        <HelpOutlineIcon />
+      </HeaderRight>
   </HeaderContainer> 
   )
 }
@@ -19,13 +27,48 @@ function Header() {
 export default Header
 
 const HeaderContainer = styled.div`
-  background: purple
+  background: var(--body-bg);
+  display: flex;
+  color: var(--text-color);
+  position: fixed;
+  justify-content: space-between;
+  top:0;
+  width: 100%;
 `
 const HeaderLeft = styled.div`
-  background: pink
+  flex: 0.3;
+  display: flex;
+  align-items: center;
+  > .MuiSvgIcon-root {
+    margin-left: auto;
+    margin-right: 0.5em
+  }
+`
+const HeaderAvatar = styled(Avatar)`
+  cursor: pointer;
+  :hover{
+    opacity: 0.8;
+  }
 `
 const HeaderSearch = styled.div`
+  display: flex;
+  flex: 0.4;
+  align-items: center;
+  > input{
+    background-color: transparent;
+    border:none;
+    text-align: center;
+    margin-left: 0.5em;
+    min-width:30vw;
+    outline:0;
+    color: var(--text-color);
+  }
 `
 const HeaderRight = styled.div`
-  background: blue
+  flex: 0.3;
+  display: flex;
+  align-items: center;
+  > .MuiSvgIcon-root {
+    margin-left: 2em;
+  }
 `
