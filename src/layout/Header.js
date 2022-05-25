@@ -34,6 +34,8 @@ const HeaderContainer = styled.div`
   justify-content: space-between;
   top:0;
   width: 100%;
+  height:60px;
+  padding-left:2em;
 `
 const HeaderLeft = styled.div`
   flex: 0.3;
@@ -54,6 +56,12 @@ const HeaderSearch = styled.div`
   display: flex;
   flex: 0.4;
   align-items: center;
+  margin: 1em;
+  border: 1px solid #ccc;
+  border-radius:.5em;
+  >.MuiSvgIcon-root{
+    margin-left: 2em
+  }
   > input{
     background-color: transparent;
     border:none;
