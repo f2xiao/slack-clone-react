@@ -11,3 +11,8 @@
   --icon-color:var(--color-light) ;
   --nav-bg:var(--color-darkblue);
 }
+
+*{
+  margin: 0;
+  padding: 0;
+}
