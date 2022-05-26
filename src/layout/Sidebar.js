@@ -33,6 +33,7 @@ function Sidebar() {
       <SidebarOption Icon={KeyboardArrowUpIcon} title={'Show less'} />
       <hr style={{opacity: 0.2}} />
       <SidebarOption addChannelOption title={'Add Channel'} />
+      
     </Box>
   )
 }
