@@ -11,8 +11,12 @@ import GroupIcon from '@mui/icons-material/Group';
 import AppsIcon from '@mui/icons-material/Apps';
 import FileCopyIcon from '@mui/icons-material/FileCopy';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { collection } from 'firebase/firestore';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { db } from '../firebase.js';
 
 function Sidebar() {
+  const [channels, loading, error] = useCollection(collection(db, 'rooms'));
   return (
     <Box sx={{ backgroundColor: 'var(--body-bg)', color: 'var(--text-color)', width: 300, height: '100%', paddingTop: '60px'}}>
       <Box sx={{display: 'flex', alignItems: 'center', paddingTop:'1em'}}>
@@ -33,7 +37,14 @@ function Sidebar() {
       <SidebarOption Icon={KeyboardArrowUpIcon} title={'Show less'} />
       <hr style={{opacity: 0.2}} />
       <SidebarOption addChannelOption title={'Add Channel'} />
-      
+      {error && <strong>Error: {JSON.stringify(error)}</strong>}
+      {loading && <span>Collection: Loading...</span>}
+      {
+        channels?.docs.map((doc) => (
+              <SidebarOption id={doc.id} key={doc.id} title ={doc.get('name')} />
+            ))
+      }
+
     </Box>
   )
 }

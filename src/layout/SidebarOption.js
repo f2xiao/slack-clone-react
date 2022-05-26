@@ -5,8 +5,10 @@ import TagIcon from '@mui/icons-material/Tag';
 import AddIcon from '@mui/icons-material/Add';
 import { db } from '../firebase';
 import { collection, addDoc } from "firebase/firestore"; 
+import { enterRoom } from '../features/appSlice';
+import { useSelector, useDispatch } from 'react-redux'
 
-function SidebarOption({ Icon, title, addChannelOption }) {
+function SidebarOption({ Icon, title, addChannelOption, id }) {
   const addChannel = async () => {
     let channelName = prompt("Please enter a new channel name");
     if (channelName) {
@@ -20,8 +22,10 @@ function SidebarOption({ Icon, title, addChannelOption }) {
       }
     }
   }
+  const dispatch = useDispatch();
+  
   const selectChannel = () => {
-    alert('select a channel')
+    dispatch(enterRoom(id))
   }
   return (
     <SidebarOptionContainer onClick={addChannelOption ? addChannel : selectChannel }>
