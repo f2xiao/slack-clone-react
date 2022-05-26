@@ -25,7 +25,11 @@ function SidebarOption({ Icon, title, addChannelOption, id }) {
   const dispatch = useDispatch();
   
   const selectChannel = () => {
-    dispatch(enterRoom(id))
+    if (id) {
+      dispatch(enterRoom({
+        roomId: id
+      }))
+    }
   }
   return (
     <SidebarOptionContainer onClick={addChannelOption ? addChannel : selectChannel }>
