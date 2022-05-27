@@ -18,7 +18,7 @@ import { db } from '../firebase.js';
 function Sidebar() {
   const [channels, loading, error] = useCollection(collection(db, 'rooms'));
   return (
-    <Box sx={{ flex: "0.3",backgroundColor: 'var(--body-bg)', color: 'var(--text-color)', minHeight: 'calc(100vh - 60px)', paddingTop: '60px'}}>
+    <Box sx={{ flex: "0.3",backgroundColor: 'var(--nav-bg)', color: 'var(--text-color)', minHeight: 'calc(100% - 60px)', paddingTop: '60px', overflowY: "hidden"}}>
       <Box sx={{display: 'flex', alignItems: 'center', paddingTop:'1em'}}>
         <Box sx={{paddingLeft: '1em', width: 240}}>
           <h3>CAT HQ</h3>

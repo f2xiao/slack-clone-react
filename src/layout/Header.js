@@ -27,7 +27,7 @@ function Header() {
 export default Header
 
 const HeaderContainer = styled.div`
-  background: var(--body-bg);
+  background: var(--nav-bg);
   display: flex;
   color: var(--text-color);
   position: fixed;

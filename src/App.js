@@ -12,7 +12,7 @@ function App() {
     <div className="App" theme="dark">
       <Header />
       <AppBody>
-      <Sidebar />
+        <Sidebar />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
