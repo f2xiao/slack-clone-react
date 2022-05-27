@@ -1,18 +1,20 @@
 :root{
   --color-dark:#1d2025;
-  --color-light:#abb3bd;
+  --color-light:#e2e5e9;
   --color-darkblue: #2e445b;
   --color-navyblue:#102a43;
+  --color-green:#b9efa4
 }
 
 [theme=dark]{
-  --body-bg:var(--color-darkblue);
+  --body-bg:var(--color-dark);
   --icon-bg:var(--color-dark) ;
   --text-color:var(--color-light) ;
   --icon-color:var(--color-light) ;
-  --nav-bg:var(--color-navyblue);
-  --chat-bg:var(--color-dark);
-  --chat-text:var(--color-light);
+  --nav-bg:var(--color-dark);
+  --chat-bg:var(--color-light);
+  --chat-text:var(--color-dark);
+  --chatInput-bg: var(--color-navyblue)
 }
 
 *{

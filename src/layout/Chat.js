@@ -2,11 +2,10 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import styledComponents from 'styled-components'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
-
-
+import InfoIcon from '@mui/icons-material/Info';
+import ChatInput from './ChatInput.js'
 
 function Chat() {
-
   return (
     <ChatContainer>
       <Header>
@@ -14,12 +13,15 @@ function Chat() {
           {/* pass channel name */}
           <h4>#room-name</h4>
           <StarBorderIcon />
-
         </HeaderLeft>
-        <HeaderRight>
-
+        <HeaderRight>      
+          <InfoIcon />
+          <h4>Details</h4>
         </HeaderRight>
       </Header>
+
+      <ChatInput channelId={useSelector(state => state.app.roomId)} />
+
 
     </ChatContainer>
     
@@ -33,7 +35,7 @@ const flexbox = styledComponents.div`
  background: var(--chat-bg);
  color:var(--chat-text);
 `
-const ChatContainer = styledComponents(flexbox)`
+const ChatContainer = styledComponents.div`
   padding-top: 60px;
   min-height:calc(100vh - 60px);
   overflow-y:scroll;
@@ -47,7 +49,7 @@ const Header = styledComponents(flexbox)`
 const HeaderLeft = styledComponents(flexbox)`
 flex: 0.7;
 >h4 {
-  text-indent: 0.5em;
+  text-indent: 1em;
 }
 > .MuiSvgIcon-root {
   margin-left: 0.5em;
@@ -55,4 +57,11 @@ flex: 0.7;
 `
 const HeaderRight = styledComponents(flexbox)`
 flex: 0.3;
+justify-content:end;
+> .MuiSvgIcon-root {
+  margin-right:0.5em;
+}
+> h4 {
+  margin-right:1em;
+}
 `
