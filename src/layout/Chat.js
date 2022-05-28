@@ -13,16 +13,17 @@ function Chat() {
       {channelId &&
       <ChatContainer>
         <Header>
-        <HeaderLeft>
+          <HeaderLeft>
           {/* pass channel name */}
-              <h4># {channelName}</h4>
-          <StarBorderIcon />
-        </HeaderLeft>
-        <HeaderRight>      
-          <InfoIcon />
-          <h4>Details</h4>
-        </HeaderRight>
-      </Header>
+            <h4>#{channelName}</h4>
+            <StarBorderIcon />
+          </HeaderLeft>
+          <HeaderRight>      
+            <InfoIcon />
+            <h4>Details</h4>
+          </HeaderRight>
+        </Header>
+          
 
         <ChatInput channelId={channelId} channelName={channelName} />
       </ChatContainer>
