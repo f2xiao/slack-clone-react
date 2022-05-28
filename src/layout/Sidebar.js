@@ -25,7 +25,7 @@ function Sidebar() {
           <FiberManualRecordIcon sx={{color:'green', fontSize:'small', marginRight:'0.5em'}} />
           <span style={{display: 'inline-block',paddingTop: '0.2em'}}>Pixie The Queen</span>
         </Box>
-        <CreateIcon style={{backgroundColor: 'var(--icon-color)', color:'var(--icon-bg)', borderRadius: '50%', padding:'0.2em'}} />
+        <CreateIcon style={{backgroundColor: 'var(--icon-color)', color:'var(--icon-bg)', borderRadius: '50%', padding:'0.2em', marginRight:'0.2em'}} />
       </Box>
       <SidebarOption Icon={CommentIcon} title={'Threads'} />
       <SidebarOption Icon={InboxIcon} title={'Mentions & reactions'} />
@@ -41,7 +41,7 @@ function Sidebar() {
       {loading && <span>Collection: Loading...</span>}
       {
         channels?.docs.map((doc) => (
-              <SidebarOption id={doc.id} key={doc.id} title ={doc.get('name')} />
+              <SidebarOption  id={doc.id} key={doc.id} title ={doc.get('name')} />
             ))
       }
 

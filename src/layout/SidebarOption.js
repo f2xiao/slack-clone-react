@@ -1,12 +1,14 @@
 import React from 'react'
-import { Box } from '@mui/system'
+
 import styled from 'styled-components'
 import TagIcon from '@mui/icons-material/Tag';
 import AddIcon from '@mui/icons-material/Add';
-import { db } from '../firebase';
-import { collection, addDoc } from "firebase/firestore"; 
+
+import { useDispatch } from 'react-redux';
 import { enterRoom } from '../features/appSlice';
-import { useSelector, useDispatch } from 'react-redux'
+
+import { db } from '../firebase.js';
+import { collection,  addDoc, doc, getDoc } from "firebase/firestore"; 
 
 function SidebarOption({ Icon, title, addChannelOption, id }) {
   const addChannel = async () => {
@@ -24,11 +26,23 @@ function SidebarOption({ Icon, title, addChannelOption, id }) {
   }
   const dispatch = useDispatch();
   
-  const selectChannel = () => {
+  const selectChannel = async() => {
     if (id) {
-      dispatch(enterRoom({
-        roomId: id
-      }))
+      const docRef = doc(db, "rooms", id);
+      const docSnap = await getDoc(docRef);
+
+      if (docSnap.exists()) {
+        // console.log("Document data:", docSnap.data());
+        const { name } = docSnap.data();
+        // console.log(name);
+        dispatch(enterRoom({
+          roomId: id,
+          roomName: name
+        }))
+      } else {
+      // doc.data() will be undefined in this case
+        console.log("No such document!");
+      }
     }
   }
   return (

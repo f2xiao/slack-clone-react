@@ -3,15 +3,19 @@ import { useSelector } from 'react-redux'
 import styledComponents from 'styled-components'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import InfoIcon from '@mui/icons-material/Info';
-import ChatInput from './ChatInput.js'
+import ChatInput from './ChatInput.js';
 
 function Chat() {
+  const channelId = useSelector(state => state.app.roomId);
+  const channelName = useSelector(state => state.app.roomName);
   return (
-    <ChatContainer>
-      <Header>
+    <>
+      {channelId &&
+      <ChatContainer>
+        <Header>
         <HeaderLeft>
           {/* pass channel name */}
-          <h4>#room-name</h4>
+              <h4># {channelName}</h4>
           <StarBorderIcon />
         </HeaderLeft>
         <HeaderRight>      
@@ -20,11 +24,10 @@ function Chat() {
         </HeaderRight>
       </Header>
 
-      <ChatInput channelId={useSelector(state => state.app.roomId)} />
-
-
-    </ChatContainer>
-    
+        <ChatInput channelId={channelId} channelName={channelName} />
+      </ChatContainer>
+      }
+    </>
   )
 }
 

@@ -3,12 +3,12 @@ import React from 'react'
 import styledComponents from 'styled-components'
 
 
-function ChatInput({channelId}) {
+function ChatInput({channelId, channelName}) {
   return (
     <ChatInputContainer>
       <form action="">
 
-      <input placeholder="Message #ROOM">
+      <input placeholder={`Message #${channelName}`}>
 
       </input>
       <Button sx={{display:'none'}}>Submit</Button>
