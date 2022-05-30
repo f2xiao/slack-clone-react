@@ -4,7 +4,7 @@ import styledComponents from 'styled-components'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import InfoIcon from '@mui/icons-material/Info';
 import ChatInput from './ChatInput.js';
-import { collection } from 'firebase/firestore';
+import { collection,orderBy, query } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase.js';
 import Message from './Message.js';
@@ -14,7 +14,7 @@ function Chat() {
   const channelName = useSelector(state => state.app.roomName);
   const [roomMessages, loading, error] = useCollection(
     channelId &&
-    collection(db, 'rooms', channelId, 'messages')
+    query(collection(db, 'rooms', channelId, 'messages'), orderBy("timestamp", "asc"))
   );
 
   console.log(roomMessages);
