@@ -12,7 +12,12 @@ import Message from './Message.js';
 function Chat() {
   const channelId = useSelector(state => state.app.roomId);
   const channelName = useSelector(state => state.app.roomName);
-  const [roomMessages, loading, error] = useCollection(channelId && collection(db, 'rooms',channelId,'messages'));
+  const [roomMessages, loading, error] = useCollection(
+    channelId &&
+    collection(db, 'rooms', channelId, 'messages')
+  );
+
+  console.log(roomMessages);
   return (
     <>
       {channelId &&
@@ -27,7 +32,7 @@ function Chat() {
             <InfoIcon />
             <h4>Details</h4>
           </HeaderRight>
-        </Header>
+          </Header>
         <ChatMessages>
           {error && <strong>Error: {JSON.stringify(error)}</strong>}
           {loading && <span>Collection: Loading...</span>}
@@ -36,7 +41,6 @@ function Chat() {
               const { message, user, timestamp, userImage } = doc.data();
               return (
                 <Message
-                  id={doc.id}
                   key={doc.id}
                   message={message}
                   user={user}
@@ -68,6 +72,7 @@ const Header = styledComponents(flexbox)`
   height: 3em;
   width: 100%;
   align-items:center;
+  border-bottom: 1px solid var(--border-color);
 `
 const HeaderLeft = styledComponents(flexbox)`
 flex: 0.7;

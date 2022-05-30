@@ -7,9 +7,11 @@ import { db } from '../firebase.js';
 
 function ChatInput({ channelId, channelName }) {
   const [input, setInput] = useState('');
-  
   const sendMessage = async (e) => {
     e.preventDefault();
+    if (!channelId) {
+      return false;
+    }
     //TODO - data validation:  input in not empty
     if (!input) {
       return
@@ -28,6 +30,8 @@ function ChatInput({ channelId, channelName }) {
     } catch (e) {
       console.error("Error adding document: ", e);
     }
+
+    setInput('');
   }
   return (
     <ChatInputContainer>

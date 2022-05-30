@@ -3,7 +3,8 @@
   --color-light:#e2e5e9;
   --color-darkblue: #2e445b;
   --color-navyblue:#102a43;
-  --color-green:#b9efa4
+  --color-green:#b9efa4;
+  --color-grey:rgba(204,204,204,0.6);
 }
 
 [theme=dark]{
@@ -14,7 +15,8 @@
   --nav-bg:var(--color-dark);
   --chat-bg:var(--color-light);
   --chat-text:var(--color-dark);
-  --chatInput-bg: var(--color-navyblue)
+  --chatInput-bg: var(--color-navyblue);
+  --border-color:var(--color-grey);
 }
 
 *{

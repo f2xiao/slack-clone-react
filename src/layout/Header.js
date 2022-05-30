@@ -57,7 +57,7 @@ const HeaderSearch = styled.div`
   flex: 0.4;
   align-items: center;
   margin: 1em;
-  border: 1px solid #ccc;
+  border: 1px solid var(--color-grey);
   opacity: 0.5;
   border-radius:.5em;
   >.MuiSvgIcon-root{
