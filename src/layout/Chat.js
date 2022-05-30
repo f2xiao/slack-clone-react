@@ -19,9 +19,9 @@ function Chat() {
 
   console.log(roomMessages);
   return (
-    <>
-      {channelId &&
       <ChatContainer>
+      {channelId && roomMessages &&
+        <>
         <Header>
           <HeaderLeft>
           {/* pass channel name */}
@@ -50,9 +50,10 @@ function Chat() {
           }
         </ChatMessages>
         <ChatInput channelId={channelId} channelName={channelName} />
-      </ChatContainer>
+      </>
       }
-    </>
+      </ChatContainer>
+   
   )
 }
 
