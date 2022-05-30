@@ -4,10 +4,15 @@ import styledComponents from 'styled-components'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
 import InfoIcon from '@mui/icons-material/Info';
 import ChatInput from './ChatInput.js';
+import { collection } from 'firebase/firestore';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import { db } from '../firebase.js';
+import Message from './Message.js';
 
 function Chat() {
   const channelId = useSelector(state => state.app.roomId);
   const channelName = useSelector(state => state.app.roomName);
+  const [roomMessages, loading, error] = useCollection(channelId && collection(db, 'rooms',channelId,'messages'));
   return (
     <>
       {channelId &&
@@ -23,8 +28,23 @@ function Chat() {
             <h4>Details</h4>
           </HeaderRight>
         </Header>
-          
-
+        <ChatMessages>
+          {error && <strong>Error: {JSON.stringify(error)}</strong>}
+          {loading && <span>Collection: Loading...</span>}
+          {
+            roomMessages?.docs.map((doc) => {
+              const { message, user, timestamp, userImage } = doc.data();
+              return (
+                <Message
+                  id={doc.id}
+                  key={doc.id}
+                  message={message}
+                  user={user}
+                  timestamp={timestamp}
+                  userImage={userImage} />
+                )})
+          }
+        </ChatMessages>
         <ChatInput channelId={channelId} channelName={channelName} />
       </ChatContainer>
       }
@@ -35,7 +55,6 @@ function Chat() {
 export default Chat
 const flexbox = styledComponents.div`
  display:flex;
- flex-direction:row;
  background: var(--chat-bg);
  color:var(--chat-text);
 `
@@ -68,4 +87,9 @@ justify-content:end;
 > h4 {
   margin-right:1em;
 }
+`
+
+const ChatMessages = styledComponents(flexbox)`
+  background:yellow;
+  flex-direction: column;
 `
