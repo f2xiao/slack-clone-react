@@ -6,18 +6,26 @@ import styled from 'styled-components'
 import Header from "./layout/Header.js"
 import Sidebar from "./layout/Sidebar.js"
 import Chat from './layout/Chat.js';
+import Login from './layout/Login.js';
+import { auth } from './firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function App() {
+  const [user] = useAuthState(auth); 
   return (
-    <div className="App" theme="dark">
-      <Header />
-      <AppBody>
-        <Sidebar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-        </Routes>
-      </AppBody>
-    </div>
+    <>
+      {!user?<Login />:
+        (<div className="App" theme="dark">
+          <Header />
+          <AppBody>
+            <Sidebar />
+            <Routes>
+              <Route path="/" element={<Home />} />
+            </Routes>
+          </AppBody>
+        </div>)
+       }
+    </>
   );
 }
 function Home() {
