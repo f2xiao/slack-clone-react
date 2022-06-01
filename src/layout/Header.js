@@ -4,13 +4,14 @@ import SearchIcon from '@mui/icons-material/Search';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import styled from 'styled-components'
 import { Avatar } from '@mui/material'
+import { auth } from '../firebase';
 
-function Header() {
+function Header({user}) {
   
   return (
     <HeaderContainer>
       <HeaderLeft>
-        <HeaderAvatar />
+        <HeaderAvatar onClick={()=>{ auth.signOut()}} src={user?.photoURL} alt={user.displayName} />
         <AccessTimeIcon />
       </HeaderLeft>
       <HeaderSearch>

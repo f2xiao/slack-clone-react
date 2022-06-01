@@ -14,16 +14,19 @@ import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { collection } from 'firebase/firestore';
 import { useCollection } from 'react-firebase-hooks/firestore';
 import { db } from '../firebase.js';
+import { auth } from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function Sidebar() {
   const [channels, loading, error] = useCollection(collection(db, 'rooms'));
+  const [user] = useAuthState(auth);
   return (
     <Box sx={{ flex: "0.3",backgroundColor: 'var(--nav-bg)', color: 'var(--text-color)', minHeight: 'calc(100% - 60px)', paddingTop: '60px', overflowY: "hidden"}}>
       <Box sx={{display: 'flex', alignItems: 'center', paddingTop:'1em'}}>
         <Box sx={{paddingLeft: '1em', width: 240}}>
           <h3>CAT HQ</h3>
           <FiberManualRecordIcon sx={{color:'green', fontSize:'small', marginRight:'0.5em'}} />
-          <span style={{display: 'inline-block',paddingTop: '0.2em'}}>Pixie The Queen</span>
+          <span style={{display: 'inline-block',paddingTop: '0.2em'}}>{user?.displayName}</span>
         </Box>
         <CreateIcon style={{backgroundColor: 'var(--icon-color)', color:'var(--icon-bg)', borderRadius: '50%', padding:'0.2em', marginRight:'0.2em'}} />
       </Box>

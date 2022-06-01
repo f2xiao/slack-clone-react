@@ -9,23 +9,33 @@ import Chat from './layout/Chat.js';
 import Login from './layout/Login.js';
 import { auth } from './firebase';
 import { useAuthState } from 'react-firebase-hooks/auth';
+import { CircularProgress } from '@mui/material';
 
 function App() {
-  const [user] = useAuthState(auth); 
+  const [user, loading] = useAuthState(auth);
+  if (loading) {
+    return (
+      <AppLoadingContainer>
+        <AppLoadingContent>
+          <img src="https://cdn-icons-png.flaticon.com/512/2111/2111615.png" alt='Slack' />
+          <CircularProgress />
+        </AppLoadingContent>
+      </AppLoadingContainer>
+    )
+  }
   return (
-    <>
-      {!user?<Login />:
-        (<div className="App" theme="dark">
-          <Header />
-          <AppBody>
-            <Sidebar />
-            <Routes>
-              <Route path="/" element={<Home />} />
-            </Routes>
-          </AppBody>
-        </div>)
-       }
-    </>
+    <div className="App" theme="dark">
+      {!user ? <Login /> : (<>
+              <Header user={user} />
+              <AppBody>
+                <Sidebar />
+                <Routes>
+                  <Route path="/" element={<Home />} />
+                </Routes>
+              </AppBody>
+            </>)
+        }
+    </div>
   );
 }
 function Home() {
@@ -41,3 +51,17 @@ const AppBody = styled.div`
   flex-direction: row;
   height: 100vh;
 `;
+
+const AppLoadingContainer = styled(AppBody)`
+  justify-content: center;
+`
+const AppLoadingContent = styled(AppBody)`
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;;
+
+  > img {
+  width: 8em;
+  margin-bottom: 4em;
+}
+`

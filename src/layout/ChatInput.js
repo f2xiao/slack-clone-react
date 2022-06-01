@@ -4,8 +4,11 @@ import styledComponents from 'styled-components'
 import { useState } from "react";
 import { addDoc, serverTimestamp, collection } from "firebase/firestore";
 import { db } from '../firebase.js'; 
+import { auth } from '../firebase';
+import { useAuthState } from 'react-firebase-hooks/auth';
 
 function ChatInput({ channelId, channelName, chatRef }) {
+  const [user] = useAuthState(auth);
   const [input, setInput] = useState('');
   useEffect(() => { 
     chatRef.current.scrollIntoView({
@@ -23,9 +26,9 @@ function ChatInput({ channelId, channelName, chatRef }) {
     }
     const message = {
       message: input,
-      user:'Pixie',
+      user:user.displayName,
       timestamp: serverTimestamp(),
-      userImage: 'https://avatars.githubusercontent.com/u/25191617?s=400&u=bda4e2d6456c927b05b8259154bc353056fe75cb&v=4'
+      userImage: user.photoURL
     }
 
     try {
