@@ -1,12 +1,17 @@
 import { Button } from '@mui/material'
-import React from 'react'
+import React, { useEffect } from 'react'
 import styledComponents from 'styled-components'
 import { useState } from "react";
 import { addDoc, serverTimestamp, collection } from "firebase/firestore";
 import { db } from '../firebase.js'; 
 
-function ChatInput({ channelId, channelName }) {
+function ChatInput({ channelId, channelName, chatRef }) {
   const [input, setInput] = useState('');
+  useEffect(() => { 
+    chatRef.current.scrollIntoView({
+      behavior: 'smooth'
+    })
+   })
   const sendMessage = async (e) => {
     e.preventDefault();
     if (!channelId) {
@@ -26,12 +31,11 @@ function ChatInput({ channelId, channelName }) {
     try {
       const docRef = await addDoc(collection(db, 'rooms', channelId, "messages"), message);
       setInput('');
+      console.log(chatRef.current)
       console.log("Document written with ID: ", docRef.id);
     } catch (e) {
       console.error("Error adding document: ", e);
     }
-
-    setInput('');
   }
   return (
     <ChatInputContainer>

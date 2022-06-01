@@ -60,6 +60,7 @@ function SidebarOption({ Icon, title, addChannelOption, id }) {
 export default SidebarOption
 const SidebarOptionChannel = styled.div`
   display: flex;
+  cursor: pointer;
   > h4{
     font-weight:normal
   }

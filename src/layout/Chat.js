@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useRef} from 'react'
 import { useSelector } from 'react-redux'
 import styledComponents from 'styled-components'
 import StarBorderIcon from '@mui/icons-material/StarBorder';
@@ -12,12 +12,13 @@ import Message from './Message.js';
 function Chat() {
   const channelId = useSelector(state => state.app.roomId);
   const channelName = useSelector(state => state.app.roomName);
+  const chatRef = useRef();
   const [roomMessages, loading, error] = useCollection(
     channelId &&
     query(collection(db, 'rooms', channelId, 'messages'), orderBy("timestamp", "asc"))
   );
 
-  console.log(roomMessages);
+  
   return (
       <ChatContainer>
       {channelId && roomMessages &&
@@ -48,8 +49,9 @@ function Chat() {
                   userImage={userImage} />
                 )})
           }
+        <div ref={chatRef}></div>
         </ChatMessages>
-        <ChatInput channelId={channelId} channelName={channelName} />
+        <ChatInput chatRef={chatRef} channelId={channelId} channelName={channelName} />
       </>
       }
       </ChatContainer>
@@ -64,7 +66,7 @@ const flexbox = styledComponents.div`
  color:var(--chat-text);
 `
 const ChatContainer = styledComponents.div`
-  padding-top: 60px;
+  margin-top: 60px;
   min-height:calc(100vh - 60px);
   overflow-y:scroll;
   flex:0.7
@@ -98,4 +100,5 @@ justify-content:end;
 const ChatMessages = styledComponents(flexbox)`
   background:yellow;
   flex-direction: column;
+  padding-bottom:200px;
 `
